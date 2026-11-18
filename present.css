@@ -81,6 +81,7 @@ body{background:var(--black);color:var(--white);font:400 16px/1.4 var(--sans);-w
 .opt.rej{opacity:.22}
 .opt.rej .vote .r{background:#111;color:#fff;border-color:#111;opacity:1}
 body.hide-rej .opt.rej{visibility:hidden}
+body.short-only .opt:not(.keep){visibility:hidden}
 
 /* black / white pair */
 .pairs .two{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr}
@@ -142,7 +143,7 @@ body.hide-rej .opt.rej{visibility:hidden}
 .L-band > img{bottom:28%;height:72%}.L-band .lg{left:7%;right:7%;bottom:6%;height:16%}
 .L-label{background:#fff;color:#0b0b0b}.L-label > img{bottom:36%;height:64%}.L-label .lg{left:8%;right:8%;bottom:8%;height:20%}
 .L-case{background:#000}.L-case > img{top:7%;height:93%}.L-case .lg{left:8%;right:8%;bottom:9%;height:32%}.L-case .ln{top:1.4%;font-size:26px;color:#fff}
-.fx-print.art-on{color:inherit;opacity:.96;filter:blur(.3px) contrast(.98)}
+.fx-print.art-on{color:inherit;mix-blend-mode:multiply;opacity:.97;filter:blur(.3px) contrast(1.02)}
 .fx-lit.art-on{mix-blend-mode:normal;opacity:.97;filter:blur(.3px) brightness(1.08) drop-shadow(0 0 10px rgba(255,255,255,.35))}
 .fx-rhine{color:#fff;opacity:.95;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 6px rgba(255,220,240,.9)) blur(.2px)}
 .mk3.m4c{grid-template-columns:repeat(4,1fr)}

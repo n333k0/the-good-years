@@ -166,7 +166,8 @@
     band: ['g17', 896, 1120], phone: ['g4', 896, 1120], tee: ['g19', 896, 1120], crt: ['g24', 896, 1120],
     case: ['g23', 896, 1120], card: ['g26', 896, 1120], tag: ['g28', 896, 1120], hat: ['g34', 896, 1120],
     board: ['g29', 1024, 688], stand: ['g38', 896, 1120], tote: ['g33', 896, 1120], shelter: ['g30', 896, 1120],
-    hood: ['g35', 896, 1120], gloss: ['g36', 896, 1120], led: ['g31', 1024, 688], dvd: ['g32', 896, 1120], jewel: ['g37', 1024, 1024],
+    hood: ['g35', 896, 1120], gloss: ['g36', 896, 1120], led: ['g31', 1024, 688], dvd: ['g53', 896, 1120], jewel: ['g37', 1024, 1024],
+    held: ['g55', 896, 1120], tote2: ['g54', 896, 1120], shelter2: ['g56', 896, 1120], fish: ['g50', 896, 1120],
   };
   // designed artwork for a surface: a layout (cover, poster, pink, split, band, label, center, case) with a photo, the logo and small type
   const art = (s) => {
@@ -181,8 +182,8 @@
   const MOCK = {
     TB: [
       frame('wall', [[139, 186, 297, 436, { layout: 'pink', code: 'TB9' }], [303, 183, 467, 436, { layout: 'poster', img: 'g39', code: 'TB2' }], [473, 183, 639, 436, { layout: 'pink', code: 'TB9' }], [645, 181, 809, 437, { layout: 'poster', img: 'g43', code: 'TB2' }], [815, 181, 948, 439, { layout: 'pink', code: 'TB9' }]].map(([a, b, c, d, o]) => Object.assign({ q: rect(a, b, c, d) }, o)), 'Wheat-paste run'),
-      frame('maga', [{ layout: 'cover', img: 'g5', code: 'TB1', q: [57, 426, 497, 349, 738, 1039, 158, 1077], l1: 'Issue 01', l2: 'The paparazzi years' }], 'Magazine'),
-      frame('tick', [{ layout: 'pink', code: 'TB1', q: [139, 404, 805, 392, 803, 698, 119, 712], l1: 'Admit one', l2: 'RASA presents' }], 'Ticket'),
+      frame('held', [{ layout: 'cover', img: 'g5', code: 'TB1', q: [174, 366, 738, 358, 734, 1008, 187, 1021], l1: 'Issue 01', l2: 'The paparazzi years' }], 'Magazine'),
+      frame('tick', [{ layout: 'pink', code: 'TB1', q: [138, 403, 807, 393, 801, 700, 158, 707], l1: 'Admit one', l2: 'RASA presents' }], 'Ticket'),
     ],
     AN: [
       frame('glam', [{ code: 'AN1', q: rect(110, 930, 786, 1070), fx: 'light', pad: 0.02 }], 'Glamour Shots poster'),
@@ -196,14 +197,13 @@
     ],
   };
   const OBJECTS = [
-    frame('case', [{ layout: 'case', img: 'g16', code: 'TB2', q: [57, 244, 560, 184, 748, 791, 193, 946] }], 'Game case'),
+    frame('case', [{ layout: 'case', img: 'g16', code: 'TB2', q: [61, 253, 558, 179, 758, 815, 192, 950] }], 'Game case'),
     frame('card', [{ layout: 'center', img: 'g1', code: 'TB16', q: [190, 330, 680, 296, 716, 664, 222, 712], lines: false }], 'Memory card'),
     frame('tag', [{ code: 'TB2', q: [302, 452, 514, 430, 560, 858, 346, 880], fx: 'etch', pad: 0.1 }], 'Dog tag'),
   ];
   const MERCH = [
     frame('hat', [{ code: 'TB1', q: [292, 112, 556, 98, 570, 246, 288, 258], pad: 0.08 }], 'Trucker hat'),
-    frame('tote', [{ code: 'TB9', q: [185, 540, 465, 535, 488, 840, 170, 842], pad: 0.08 }], 'Tote'),
-    frame('gloss', [{ code: 'AN4', q: rect(228, 410, 370, 830), pad: 0.1 }], 'Lip gloss'),
+    frame('tote2', [{ code: 'TB2', q: [188, 432, 686, 430, 688, 991, 189, 990], pad: 0.2 }], 'Tote'),
   ];
   const BEST = {
     TB: [
@@ -211,12 +211,12 @@
       frame('stand', [{ layout: 'cover', img: 'g12', code: 'TB1', q: [271, 287, 827, 276, 816, 983, 271, 953], l1: 'Issue 02', l2: 'Karaoke queens' }], 'Newsstand', 0.85),
     ],
     AN: [
-      frame('shelter', [{ layout: 'coverb', img: 'g44', code: 'AN1', q: [468, 216, 800, 150, 800, 826, 468, 750], fx: 'lit' }], 'Bus shelter'),
-      frame('hood', [{ code: 'AN1', q: rect(220, 360, 590, 520), fx: 'rhine', pad: 0.04 }], 'Velour tracksuit'),
+      frame('shelter2', [{ layout: 'coverb', img: 'g52', code: 'AN1', q: [321, 130, 775, 130, 765, 866, 328, 865], fx: 'lit' }], 'Bus shelter', 0.6),
+      frame('fish', [{ code: 'AN1', q: rect(170, 800, 726, 900), fx: 'light', pad: 0.02 }], 'Party poster'),
     ],
     DU: [
       frame('led', [{ code: 'DU1', q: rect(230, 110, 880, 330), fx: 'screen', pad: 0.06 }], 'LED wall'),
-      frame('dvd', [{ layout: 'band', img: 'g42', code: 'DU1', q: [191, 211, 708, 198, 682, 900, 192, 900], lines: false }], 'DVD'),
+      frame('dvd', [{ layout: 'band', img: 'g42', code: 'DU1', q: [155, 88, 785, 87, 762, 1004, 162, 1000], lines: false }], 'DVD'),
       frame('jewel', [{ layout: 'label', img: 'g13', code: 'DU13', q: [100, 428, 583, 367, 675, 874, 150, 906], lines: false }], 'Mix CD', 0.3),
     ],
   };
@@ -232,7 +232,7 @@
   S.push('<section class="s cover">' + hdr + '<div class="ttl"><div><h1>The Good Years</h1><p>Logo exploration for RASA · Round 6 · November 2026</p></div></div></section>');
   S.push('<section class="s stmt">' + hdr + '<h2 class="big">Nostalgia is RASA’s living time machine for the late 80s, 90s and early 2000s. The Good Years is its first festival.</h2><div class="cols"><div><h4>Stages</h4><p>Pop Royalty, MTV Spring Break, The Rave, Studio 54, Alt Nation, Prom Night.</p></div><div><h4>Rooms</h4><p>Polaroid memory wall, Glamour Shots, the Mixtape Lab, a CK One lab, a roller rink.</p></div><div><h4>Audience</h4><p>Women around 30 to 40 who lived these years the first time round.</p></div><div><h4>This round</h4><p>Sixteen options per direction, black and white only, every one checked for alignment.</p></div></div></section>');
   S.push('<section class="s">' + hdr + '<div class="mid-note"><p>The guests were there the first time. So the brand should flirt with them the way the magazine covers did: flash, gloss, a little trouble. Grown-up glamour, worn a little messy.</p></div></section>');
-  S.push('<section class="s ph"><div class="photo" style="background-image:url(assets/gen/g6.jpg)"></div><p class="over big">The night everyone still talks about.</p></section>');
+  S.push('<section class="s ph"><div class="photo" style="background-image:url(assets/gen/g45.jpg)"></div><p class="over big">The night everyone still talks about.</p></section>');
   S.push('<section class="s">' + hdr + '<div class="mood m4"><div class="im" style="background-image:url(assets/gen/g11.jpg)"></div><div class="im" style="background-image:url(assets/gen/g14.jpg)"></div><div class="im" style="background-image:url(assets/gen/g9.jpg)"></div><div class="kw">Flash.<br>Photo booths.<br>Lip gloss.<br>The taxi home.<br><span>Dirty glamour, late-night internet, chrome.</span></div></div></section>');
   S.push('<section class="s">' + hdr + '<div class="mid-note"><p>Tabloid, Angel and Dial-up, sixteen options each. Each direction is shown as a concept, two pages of exploration, on black and white, across the stage names, in the world and out at scale. Keep or reject anything as you go.</p></div></section>');
   S.push('<section class="s">' + hdr + '<div class="lets">Let’s see.</div></section>');
@@ -248,9 +248,9 @@
     S.push('<section class="s">' + hdr + '<div class="lbl">' + r.name + '<br>Out at scale</div><div class="mk3 ' + ({ TB: 'two', AN: 'half', DU: 'wide1' })[r.id] + '">' + BEST[r.id].join('') + '</div></section>');
   });
   S.push('<section class="s">' + hdr + '<div class="lbl">Y2K objects<br>In the world</div><div class="mk3">' + OBJECTS.join('') + '</div></section>');
-  S.push('<section class="s">' + hdr + '<div class="lbl">Merch<br>In the world</div><div class="mk3">' + MERCH.join('') + '</div></section>');
+  S.push('<section class="s">' + hdr + '<div class="lbl">Merch<br>In the world</div><div class="mk3 half">' + MERCH.join('') + '</div></section>');
   S.push('<section class="s w xp"><div class="lbl">Still in play<br>From Round 3</div>' + side + '<div class="grid">' + R3.map(([c, n]) => opt('R3-' + c, n, '<div data-mark="' + c + '" style="width:100%;height:100%;display:grid;place-items:center"></div>')).join('') + '</div>' + ftr() + '</section>');
-  S.push('<section class="s picks">' + hdr + '<div class="lists"><div><h4>Kept</h4><ul id="lk"><li>Nothing yet</li></ul></div><div><h4>Rejected</h4><ul id="lr"><li>Nothing yet</li></ul></div><div><h4>Next</h4><ul><li>We redraw what you keep as clean vectors.</li><li>One logo, locked in black and white.</li><li>Then colour, flyers and the full presentation.</li></ul></div></div><div class="act"><button class="btn" type="button" data-act="copy">Copy my picks</button><button class="btn o" type="button" data-act="hide">Hide rejected</button><button class="btn o" type="button" data-act="reset">Reset</button></div></section>');
+  S.push('<section class="s picks">' + hdr + '<div class="lists"><div><h4>Kept</h4><ul id="lk"><li>Nothing yet</li></ul></div><div><h4>Rejected</h4><ul id="lr"><li>Nothing yet</li></ul></div><div><h4>Next</h4><ul><li>We redraw what you keep as clean vectors.</li><li>One logo, locked in black and white.</li><li>Then colour, flyers and the full presentation.</li></ul></div></div><div class="act"><button class="btn" type="button" data-act="wa">Send on WhatsApp</button><button class="btn o" type="button" data-act="mail">Send by email</button><button class="btn o" type="button" data-act="copy">Copy</button><button class="btn o" type="button" data-act="short">Shortlist only</button><button class="btn o" type="button" data-act="reset">Reset</button></div></section>');
   S.push('<section class="s shy">' + hdr + '<h2 class="big">Don’t be shy.<br>Tell us what you keep.</h2><p>RemotoLabs® × RASA · The Good Years</p></section>');
 
   /* ---------- perspective mapping ---------- */
@@ -303,6 +303,9 @@
     if (a === 'copy') { const t = text(); (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => { const l = btn.textContent; btn.textContent = 'Copied'; setTimeout(() => (btn.textContent = l), 1400); }).catch(() => window.prompt('Copy your picks:', t)); }
     if (a === 'hide') { document.body.classList.toggle('hide-rej'); document.querySelectorAll('[data-act="hide"]').forEach((b) => (b.textContent = document.body.classList.contains('hide-rej') ? 'Show rejected' : 'Hide rejected')); }
     if (a === 'reset' && window.confirm('Clear all keep / reject marks?')) { votes = {}; save(); paint(); }
+    if (a === 'short') { document.body.classList.toggle('short-only'); document.querySelectorAll('[data-act="short"]').forEach((b) => (b.textContent = document.body.classList.contains('short-only') ? 'Show all' : 'Shortlist only')); }
+    if (a === 'wa') window.open('https://wa.me/?text=' + encodeURIComponent(text() + '\n' + location.href.split('#')[0]), '_blank', 'noopener');
+    if (a === 'mail') location.href = 'mailto:?subject=' + encodeURIComponent('The Good Years: our picks') + '&body=' + encodeURIComponent(text() + '\n\n' + location.href.split('#')[0]);
   }
 
   /* ---------- boot: draw after fonts so ink metrics are real ---------- */
@@ -324,7 +327,7 @@
     const deck = document.getElementById('deck'); if (!deck) return;
     deck.innerHTML = S.join('');
     const rv = document.createElement('div'); rv.className = 'rv';
-    rv.innerHTML = '<span id="rvn" class="n">0 kept · 0 rejected</span><button type="button" class="hide" data-act="hide">Hide rejected</button><button type="button" class="pri" data-act="copy">Copy picks</button>';
+    rv.innerHTML = '<span id="rvn" class="n">0 kept · 0 rejected</span><button type="button" class="hide" data-act="short">Shortlist only</button><button type="button" class="hide" data-act="hide">Hide rejected</button><button type="button" class="pri" data-act="wa">Send picks</button>';
     document.body.appendChild(rv);
     document.addEventListener('click', (e) => {
       const b = e.target.closest('button'); if (!b) return;
